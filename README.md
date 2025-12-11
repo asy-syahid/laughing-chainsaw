@@ -224,12 +224,21 @@ To learn more about the technologies used in this project:
 
 ```
 ├── app/                    # Next.js app directory
+│   ├── admin/             # Admin portal (SideNav layout)
+│   ├── login/             # Login page
+│   ├── resident/          # Resident portal (BottomNav layout)
+│   ├── technician/        # Technician portal
+│   ├── globals.css        # Global styles and Tailwind configuration
 │   ├── layout.tsx         # Root layout
 │   └── page.tsx           # Home page
+├── components/            # React components
+│   ├── layout/            # Layout specific components (Header, Footer, Navs)
+│   └── ui/                # Reusable UI components (Button, Card, etc.)
 ├── lib/
-│   └── supabase/          # Supabase client utilities
-│       ├── client.ts      # Client-side Supabase client
-│       └── server.ts      # Server-side Supabase client
+│   ├── supabase/          # Supabase client utilities
+│   │   ├── client.ts      # Client-side Supabase client
+│   │   └── server.ts      # Server-side Supabase client
+│   └── utils.ts           # Utility functions (cn, etc.)
 ├── supabase/
 │   ├── schema.sql         # Database schema and migrations
 │   └── seed.sql           # Sample data for development
@@ -237,6 +246,28 @@ To learn more about the technologies used in this project:
 │   └── seed.ts            # TypeScript seed script
 └── public/                # Static assets
 ```
+
+## Navigation Map
+
+The application is structured with dedicated route segments for different user roles:
+
+- `/` - Public Landing Page (Marketing, Login links)
+- `/login` - Authentication Page
+- `/resident` - Resident Portal
+  - `/resident` - Dashboard (Balance, Open Requests, Recent Activity)
+  - `/resident/requests` - Maintenance Requests (Placeholder)
+  - `/resident/payments` - Payment History (Placeholder)
+  - `/resident/profile` - User Profile (Placeholder)
+- `/technician` - Technician Portal
+  - `/technician` - Job Dashboard
+  - `/technician/schedule` - Work Schedule (Placeholder)
+  - `/technician/profile` - Technician Profile (Placeholder)
+- `/admin` - Administration Portal
+  - `/admin` - Dashboard (Revenue, Occupancy, Work Orders)
+  - `/admin/maintenance` - Maintenance Oversight (Placeholder)
+  - `/admin/payments` - Financial Management (Placeholder)
+  - `/admin/community` - Community Management (Placeholder)
+  - `/admin/assets` - Asset Management (Placeholder)
 
 ## Development Tips
 
